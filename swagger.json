@@ -1,0 +1,333 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "Store API",
+        "description": "A store listing API based on Swagger and built using Java"
+    },
+    "host": "localhost",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/api",
+    "paths": {
+        "/Artists": {
+            "get": {
+                "tags": [
+                    "Artist"
+                ],
+                "operationId": "artists_get",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Artist"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Artists/{id}": {
+            "get": {
+                "tags": [
+                    "Artist"
+                ],
+                "operationId": "artists_getById",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Artist"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Albums": {
+            "get": {
+                "tags": [
+                    "Album"
+                ],
+                "operationId": "albums_get",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Album"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Albums/{id}": {
+            "get": {
+                "tags": [
+                    "Album"
+                ],
+                "operationId": "albums_getById",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Album"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Albums?artistId={id}": {
+            "get": {
+                "tags": [
+                    "Album",
+                    "Artist"
+                ],
+                "operationId": "albums_getByArtistId",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Album"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Movies": {
+            "get": {
+                "tags": [
+                    "Movie"
+                ],
+                "operationId": "movies_get",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Movie"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Movies/{id}": {
+            "get": {
+                "tags": [
+                    "Movie"
+                ],
+                "operationId": "movies_getById",
+                "consumes": [],
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Movie"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "Artist": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "bio": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "Album": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Artist": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Url": {
+                    "type": "string"
+                },
+                "Image": {
+                    "type": "string"
+                },
+                "Listeners": {
+                    "type": "string"
+                },
+                "Playcount": {
+                    "type": "string"
+                }
+            }
+        },
+        "Movie": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Title": {
+                    "type": "string"
+                },
+                "Year": {
+                    "type": "string"
+                },
+                "Rated": {
+                    "type": "string"
+                },
+                "Released": {
+                    "type": "string"
+                },
+                "Runtime": {
+                    "type": "string"
+                },
+                "Genre": {
+                    "type": "string"
+                },
+                "Director": {
+                    "type": "string"
+                },
+                "Writer": {
+                    "type": "string"
+                },
+                "Actors": {
+                    "type": "string"
+                },
+                "Plot": {
+                    "type": "string"
+                },
+                "Language": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "Awards": {
+                    "type": "string"
+                },
+                "Poster": {
+                    "type": "string"
+                },
+                "imdbRating": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
